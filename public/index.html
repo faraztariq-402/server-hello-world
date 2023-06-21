@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>My First Server Of Weather App</h1>
+    <label for="cityName">City:</label>
+    <input type="text" id="cityName" placeholder="Enter Your City Name" name="cityName">
+    <button type="submit" id="submitButton" onclick="getWeather()">Check Weather</button>
+    <div id="result"></div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module">
+        let userInput = document.getElementById("cityName").value
+        let submitButton = document.getElementById("submitButton")
+        let result = document.getElementById("result")
+        window.getWeather = () => {
+            axios.get(`https://localhost:3000/weather/${userInput}`)
+                .then(function (response) {
+                    console.log(response.data);
+                    result.innerHTML = `current temperature is ${response.data.tempInC}C`;
+                })
+ 
+   .catch(function (error) {
+            console.log(error.data);
+            result.innerHTML = "error in getting weather data";
+        });
+};
+
+// getWeather()
+    </script>
+</body>
+
+</html>
