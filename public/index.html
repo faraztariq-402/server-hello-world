@@ -47,7 +47,7 @@
             let min = document.getElementById("min");
             let max = document.getElementById("max");
 
-            axios.get(`http://localhost:3000/weather/${userInput}`)
+            axios.get(`/weather/${userInput}`)
                 .then(function (response) {
                     console.log(response.data);
                     celsius.innerHTML = `${response.data.tempInC}°C`
