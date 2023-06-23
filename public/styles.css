@@ -1,0 +1,50 @@
+body {
+    background-color: rgb(7, 7, 7);
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    color: rgb(11, 10, 10);
+    margin-bottom: 0.5rem;
+}
+
+.searchbox {
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.result {
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.parent {
+    background-color: rgb(255, 255, 255);
+    width: 350px;
+    margin: auto;
+    padding: 1rem;
+    border-radius: 0.5rem;
+
+}
+
+#celsius{
+    margin: auto;
+    font-size: 200%;
+}

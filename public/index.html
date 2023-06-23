@@ -5,29 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
-    <h1>My First Server Of Weather App</h1>
-    <label for="cityName">City:</label>
-    <input type="text" id="cityName" placeholder="Enter Your City Name" name="cityName">
-    <button type="submit" id="submitButton" onclick="getWeather()">Check Weather</button>
-    <div id="result"></div>
-    
+    <div class="parent">
+        <h1> Weather App</h1>
+        <!-- <label for="cityName">City:</label> -->
+        <div class="searchbox"><input type="text" id="cityName" placeholder="Enter Your City Name" name="cityName">
+            <button type="button" class="btn btn-success" type="submit" id="submitButton" onclick="getWeather()"><svg
+                    xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-search"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>&nbsp;&nbsp;Check</button>
+        </div>
+        <div id="result" class="result">
+            <h2 id="celsius"></h2>
+            <p id="humidity"></p>
+            <p id="max"></p>
+            <p id="min"></p>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module">
         window.getWeather = (event) => {
             // event.preventDefault()
             let userInput = document.getElementById("cityName").value;
             let result = document.getElementById("result");
+            let celsuis = document.getElementById("celsuis");
+            let humidity = document.getElementById("humidity");
+            let min = document.getElementById("min");
+            let max = document.getElementById("max");
 
-            axios.get(`https://localhost:3000/weather/${userInput}`)
+            axios.get(`http://localhost:3000/weather/${userInput}`)
                 .then(function (response) {
                     console.log(response.data);
-                    result.innerText = `current temperature is ${response.data.tempInC}C`;
+                    celsius.innerHTML = `${response.data.tempInC}°C`
+
+                    humidity.innerHTML = `humidity: ${response.data.humdidity}°C<br>`;
+                    min.innerHTML = ` Max Temp: ${response.data.high}°C<br>`;
+                    max.innerHTML = ` Min Temp: ${response.data.low}°C<br>`;
                 })
                 .catch(function (error) {
-                    result.innerText = "Sorry, your city name is not in our data list";
+                    result.innerHTML = ""
+                    Swal.fire(`Sorry, Your city name ${userInput} is not in our data list`);
                 });
         };
     </script>
