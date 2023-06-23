@@ -1,7 +1,10 @@
-console.log("this is express server hello world");
-import express from 'express';
-import cors from 'cors'
-import path  from 'path';
+// console.log("this is express server hello world");
+import express from "express";
+import cors from "cors";
+import path from "path";
+
+
+
 const __dirname = path.resolve();
 const app = express()
 app.use(cors())
@@ -19,7 +22,7 @@ app.get('/weather/:CityName', (req, res) => {
       high: 36,
       low: 30
     },
-    Melbourne: {
+    melbourne: {
       city: "Melbourne",
       tempInC: 22,
       humdidity: 40,
@@ -27,7 +30,7 @@ app.get('/weather/:CityName', (req, res) => {
       low: 17
     }
   }
-  let userInputCity = req.params.CityName.toLowerCase();
+  let userInputCity = req.params.toLowerCase();
   console.log(userInputCity)
     let weatherDataToSend = weatherData[userInputCity]
     if(weatherDataToSend){
@@ -35,8 +38,11 @@ app.get('/weather/:CityName', (req, res) => {
     }
 else{
   res.status(404).send(`${req.params.CityName} is not available in our data list`);
+  console.log(req.params.CityName)
 }
 })
+
+
 app.use(express.static(path.join(__dirname, 'public')))
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
