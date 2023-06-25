@@ -1,5 +1,22 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap'); */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.cover-background {
+    background-size: cover !important;
+  }
+  
 body {
-    background-color: rgb(7, 7, 7);
+    /* background: linear-gradient(rgb(41, 39, 39),rgb(0, 1, 2));
+     */
+     font-family: 'Lato', sans-serif;
+     margin: 0;
+     background-image: url(./bg\ 2.jpg);
+     background-repeat: no-repeat;
+     background-size: cover;
+     /* background-position: center; */
     flex-direction: column;
     display: flex;
     align-items: center;
@@ -7,44 +24,68 @@ body {
     height: 100vh;
 }
 
-h1 {
-    display: flex;
-    justify-content: center;
-    color: rgb(11, 10, 10);
-    margin-bottom: 0.5rem;
-}
+
 
 .searchbox {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
-
+#weatherCity{
+color: white;
+}
 input {
-    border-radius: 0.3rem;
-    font-size: 1rem;
+    background-color: rgba(34, 27, 27,0.8);
+    border-radius: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
+    margin-right: 0.5rem;
+    padding: 0.3rem;
+    font-style: italic;
+width: 15rem;
+    color: white;
 }
 
 .result {
     font-weight: bold;
-    color: rgb(0, 0, 0);
-    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    font-size: 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start;
+    /* text-align: center; */
+    margin-left: 1.3rem;
+    margin-top: 1rem;
 }
-
+#cityName:focus,
+#cityName:active {
+  background-color: black;
+}
 .parent {
-    background-color: rgb(255, 255, 255);
+    background:rgba(0, 0, 0, 0.7);
     width: 350px;
-    margin: auto;
+    /* margin: auto; */
     padding: 1rem;
     border-radius: 0.5rem;
-
+    z-index: 0.7;
 }
-
+.button{
+    /* padding: 0.3rem; */
+    background-color: rgb(34, 27, 27);
+    border-radius: 50%;
+    height: 2.3rem;
+    width: 2.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
 #celsius{
-    margin: auto;
-    font-size: 200%;
+    /* margin: auto; */
+    font-size: 2.3rem;
+}
+img{
+    height: 3.5rem;
+    width: 3.5rem;
+    margin-right: 0.6rem;
 }

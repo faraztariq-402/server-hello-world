@@ -14,51 +14,51 @@ app.get('/weather/:city', (req, res) => {
     karachi: {
       city: "Karachi",
       tempInC: 34,
-      humdidity: 50,
-      high: 36,
-      low: 30
+      image: "Sunny",
+      humidity: 50,
+       wind: "4.6km/h"
     },
     melbourne: {
       city: "Melbourne",
       tempInC: 22,
-      humdidity: 40,
-      high: 24,
-      low: 17
+      image: "Broken Clouds",
+      humidity: 40,
+      wind: "3.6km/h"
     },
     lahore: {
       city: "Lahore",
       tempInC: 32,
-      humdidity: 45,
-      high: 38,
-      low: 29
+      image: "Sunny",
+      humidity: 45,
+       wind: "3.2km/h"
     },
     quetta: {
       city: "Quetta",
       tempInC: 22,
-      humdidity: 38,
-      high: 24,
-      low: 18
+      image: "Broken Clouds",
+      humidity: 38,
+       wind: "2.5km/h"
     },
     multan: {
       city: "Multan",
       tempInC: 34,
-      humdidity: 50,
-      high: 40,
-      low: 33
+      image: "Rain Showers",
+      humidity: 50,
+     wind: "3.9km/h"
     },
     peshawar: {
       city: "Peshawar",
       tempInC: 35,
-      humdidity: 45,
-      high: 39,
-      low: 32
+      image: "Sunny",
+      humidity: 45,
+       wind: "5.2km/h"
     },
     london: {
       city: "London",
       tempInC: 17,
-      humdidity: 30,
-      high: 19,
-      low: 12
+      image: "Broken Clouds",
+      humidity: 30,
+     wind: "5.4km/h"
     }
   };
   let userInputCity = req.params.city.toLowerCase();
