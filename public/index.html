@@ -76,7 +76,9 @@ window.getWeather = (event) => {
         console.log(error);
         
         result.style.display = 'none'
-        Swal.fire(`Sorry, Your city name ${userInput} is not in our data list`);
+        // Swal.fire(`Sorry, Your city name ${userInput} is not in our data list`);
+        alert(`Sorry, Your city name ${userInput.charAt(0).toUpperCase() + userInput.slice(1)} is not in our data list`)
+                                      
     })
 
 };
